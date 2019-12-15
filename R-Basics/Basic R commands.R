@@ -36,3 +36,5 @@ co2 #muestras los datos de la base de datos directamente
 pi
 Inf+1
 
+
+
