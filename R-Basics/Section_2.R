@@ -58,4 +58,49 @@ as.numeric(y)
 x <- c("1", "b", "3")
 as.numeric(x)
 
-## 2.7.1
+## 2.9 Sorting
+
+
+## 2.9.1 sort
+library(dslabs)
+data(murders)
+sort(murders$total)##ordena de menor a mayor los datos
+
+
+## 2.9.2 order
+x <- c(31,4,15,92,65)
+sort(x)
+
+index <- order(x)
+x[index]
+
+x
+order(x) ##ordena por posición de vector de menor a mayor
+
+murders$state[1:6]
+murders$abb[1:6]
+
+ind <- order(murders$total)
+ind
+murders$abb[ind]
+
+## 2.9.3 max and which.max
+
+max(murders$total)
+min(murders$total)
+
+i_max <- which.max(murders$total)
+i_min <- which.min(murders$total)
+murders$state[i_max]
+murders$state[i_min]
+
+## 2.9.4 rank
+## asigna el ranking en la posición de menor a mayor
+
+x <- c(31,4,15,92,65)
+rank(x)
+
+## 2.9.5 Beware of recycling
+x <- c(1,2,3)
+y <- c(10,20,30,40,50,60,70)
+x+y
