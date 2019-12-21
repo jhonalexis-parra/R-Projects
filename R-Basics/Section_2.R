@@ -119,3 +119,4 @@ inches - 69
 murder_rate <- murders$total/murders$population * 100000
 murders$abb[order(murder_rate)]
 murders$state[order(murder_rate, decreasing = TRUE)]
+
