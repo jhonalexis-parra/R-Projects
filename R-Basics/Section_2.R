@@ -68,7 +68,7 @@ sort(murders$total)##ordena de menor a mayor los datos
 
 
 ## 2.9.2 order
-x <- c(31,4,15,92,65)
+x <- c(31,45,15,92,65)
 sort(x)
 
 index <- order(x)
@@ -104,3 +104,18 @@ rank(x)
 x <- c(1,2,3)
 y <- c(10,20,30,40,50,60,70)
 x+y
+
+## 2.11 Vector arithmetics
+library(dslabs)
+data("murders")
+murders$state[which.max(murders$population)]
+
+## 2.11.1 Rescaling a vector
+inches <- c(69, 62, 66, 70, 70, 73, 67, 73, 67, 70)
+inches * 2.54
+inches - 69
+
+## 2.11.2 Two vectors
+murder_rate <- murders$total/murders$population * 100000
+murders$abb[order(murder_rate)]
+murders$state[order(murder_rate, decreasing = TRUE)]
