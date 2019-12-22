@@ -52,3 +52,33 @@ murders %>% select(state, region, rate) %>% filter(rate <= 0.71)
 16 %>% sqrt()
 16 %>% sqrt() %>% log2()
 16 %>% sqrt() %>% log(base=2)
+
+## Creating Data Frames
+grades <- data.frame(names = c("John", "Juan", "Jean", "Yao"), exam_1 = c(95, 80, 90, 85), exam_2 = c(90, 85, 85, 90))
+grades
+class(grades$names) ## para convetirlo a string
+grades <- data.frame(names = c("John", "Juan", "Jean", "Yao"), exam_1 = c(95, 80, 90, 85), exam_2 = c(90, 85, 85, 90), stringsAsFactors = FALSE)
+class(grades$names)
+
+## 2.15 Basic plots
+
+## 2.15.1 plot
+x <- murders$population / 10^6
+y <- murders$total
+plot(x,y)
+
+with(murders, plot(population,total))
+
+## 2.15.2 Hist
+x <- with(murders, total/population * 100000)
+hist(x)
+max(x)
+murders$state[which.max(x)]
+
+## 2.15.3 Boxplot
+murders$rate <- with(murders, total/population * 100000)
+boxplot(rate~region, data=murders)
+
+## 2.15.4 Image
+x <- matrix(1:120, 12, 10)
+image(x)
