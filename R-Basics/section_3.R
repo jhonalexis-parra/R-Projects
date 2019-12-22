@@ -46,3 +46,9 @@ filter(murders, rate <= 0.71)
 new_table <- select(murders, state, region, rate)
 filter(new_table, rate <= 0.71)
 ?filter
+
+## 4.5 The pipe : %>%
+murders %>% select(state, region, rate) %>% filter(rate <= 0.71)
+16 %>% sqrt()
+16 %>% sqrt() %>% log2()
+16 %>% sqrt() %>% log(base=2)
