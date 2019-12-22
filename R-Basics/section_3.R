@@ -31,3 +31,18 @@ murder_rate[ind]
 c("Boston", "Dakota", "Washington") %in% murders$state   ## pregunta si los elementos de un vector estan dentro de otro vector
 murders$state[10]
 
+## 4.3 Manipulating data frames
+install.packages("tidyverse")
+library(tidyverse)
+
+## 4.3.1 Adding a column with mutate
+murders <- mutate(murders, rate = total/population * 100000 )
+head(murders)
+
+## 4.3.2 Subsetting with filter
+filter(murders, rate <= 0.71)
+
+## 4.3.3 Selecting columns with select
+new_table <- select(murders, state, region, rate)
+filter(new_table, rate <= 0.71)
+?filter
