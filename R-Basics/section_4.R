@@ -1,0 +1,110 @@
+## 3. Programming basics
+
+## 3.1 Conditional expressions
+
+a <- 5 
+if (a!=0){
+  print(1/a)
+}else{
+  print("No reciprocal for 0")
+}
+
+library(dslabs)
+data(murders)
+murder_rate <- murders$total / murders$population * 100000
+
+ind <- which.min(murder_rate)
+
+if (murder_rate[ind] < 0.5){
+  print(murders$state[ind])
+} else {
+  print("No state has murder rate that low")
+}
+
+if (murder_rate[ind] < 0.25){
+  print(murders$state[ind])
+} else{
+  print("No state has a murder rate that low")
+}
+
+a <- -2
+ifelse(a < 0, 1/a, NA)
+
+a <- c(0, 1, 2, -4, 5)
+result <- ifelse(a < 0, 1/a, NA)
+result
+
+data(na_example)
+sum(is.na(na_example))
+no_nas <- ifelse(is.na(na_example), 0, na_example)
+sum(is.na(no_nas))
+
+z <- c(TRUE, TRUE, FALSE)
+any(z) ##alguno es verdadero
+all(z) ##todos son verdaderos
+
+## 3.2 Defining functions
+
+avg <- function(x){
+  s <- sum(x)
+  n <- length(x)
+  s/n
+}
+
+x <- 1:100
+mean(x)
+avg(x)
+identical(mean(x),avg(x))
+
+s <- 3
+avg(1:10)
+s
+
+avg <- function(x, arithmetic = TRUE){
+  n <- length(x)
+  ifelse(arithmetic, sum(x)/n, prod(x)^(1/n))
+}
+avg(3.2)
+avg(1:10)
+
+## 3.3 Namespaces
+search()
+library(dplyr)
+stats::filter
+dplyr::filter
+
+## For - loops
+compute_s_n <- function(n){
+  x <- 1:n
+  sum(x)
+}
+compute_s_n(10)
+
+for (i in 1:5){
+  print(i)
+}
+
+m <- 25
+s_n <- vector(length = m)
+for (n in 1:m){
+  s_n[n] <- compute_s_n(n)
+}
+s_n
+
+n <- 1:m
+plot(n, s_n)
+
+## 3.5 Vectorization and functionals
+
+x <- 1:10
+sqrt(x)
+y <- 1:10
+x*y
+n <- 1:25
+compute_s_n(n)
+
+x <- 1:10
+sapply(x, sqrt)
+
+n <- 1:25
+sapply(n, compute_s_n)
